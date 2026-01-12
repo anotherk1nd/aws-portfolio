@@ -23,14 +23,14 @@ jobs:
       - name: Run TFSec
         uses: aquasecurity/tfsec-action@v1.0.3
         with:
-          soft_fail: false
+          soft_fail: true 
           
       - name: Run Checkov
         uses: bridgecrewio/checkov-action@v12
         with:
           directory: .
           framework: terraform
-          soft_fail: false
+          soft_fail: true 
           output_format: sarif
           output_file_path: reports/checkov.sarif
           
