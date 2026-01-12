@@ -1,0 +1,73 @@
+/* Custom additions for security portfolio */
+
+/* Tech tags styling */
+.tech-tags {
+    list-style: none;
+    padding: 0;
+    margin: 1.5em 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+
+.tech-tags li {
+    background: rgba(255, 255, 255, 0.075);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    border-radius: 4px;
+    padding: 0.35em 0.75em;
+    font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.65);
+    transition: all 0.2s ease;
+}
+
+.tech-tags li:hover {
+    background: rgba(255, 255, 255, 0.125);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Improved skills section */
+.post .row {
+    margin-bottom: 2em;
+}
+
+.post h3 {
+    color: #ffffff;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.125);
+}
+
+/* Security-themed color accents */
+.button.primary,
+.button:hover {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+}
+
+/* Better link colors for security theme */
+a {
+    color: #4CAF50;
+}
+
+a:hover {
+    color: #66BB6A;
+}
+
+/* Footer infrastructure info styling */
+footer .split section p small {
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'Courier New', monospace;
+}
+
+/* Responsive improvements for mobile */
+@media screen and (max-width: 736px) {
+    .tech-tags {
+        gap: 0.35em;
+    }
+    
+    .tech-tags li {
+        font-size: 0.7em;
+        padding: 0.25em 0.5em;
+    }
+}
