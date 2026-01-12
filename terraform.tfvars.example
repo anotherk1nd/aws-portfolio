@@ -1,0 +1,6 @@
+# Terraform Variables Configuration
+# Only need bucket name (no domain required)
+
+# S3 bucket name (must be globally unique)
+# Suggestion: use something like "josh-portfolio-2025" or "yourname-website"
+bucket_name = "your-unique-bucket-name"

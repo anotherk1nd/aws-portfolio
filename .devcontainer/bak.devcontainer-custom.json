@@ -1,0 +1,40 @@
+{
+  "name": "AWS Portfolio Development (Custom)",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "hashicorp.terraform",
+        "amazonwebservices.aws-toolkit-vscode"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "[terraform]": {
+          "editor.formatOnSave": true
+        }
+      }
+    }
+  },
+
+  // Mount your AWS credentials from host machine
+  "mounts": [
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.aws,target=/home/vscode/.aws,type=bind,consistency=cached"
+  ],
+
+  // Set environment variables
+  "remoteEnv": {
+    "AWS_DEFAULT_REGION": "eu-central-1"
+  },
+
+  // Verify setup after container creation
+  "postCreateCommand": "echo '=== Verifying Installation ===' && terraform --version && aws --version && echo '=== Ready to deploy! ==='",
+
+  // Use non-root user
+  "remoteUser": "vscode",
+
+  // Forward any ports you might need (optional)
+  "forwardPorts": []
+}

@@ -1,0 +1,42 @@
+{
+  "name": "AWS Portfolio Development",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+  
+  "features": {
+    "ghcr.io/devcontainers/features/aws-cli:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/terraform:1": {
+      "version": "1.7.0"
+    },
+    "ghcr.io/devcontainers/features/git:1": {
+      "version": "latest"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "hashicorp.terraform",
+        "amazonwebservices.aws-toolkit-vscode"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+
+  "mounts": [
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.aws,target=/home/vscode/.aws,type=bind,consistency=cached"
+  ],
+
+  "remoteEnv": {
+    "AWS_DEFAULT_REGION": "eu-central-1"
+  },
+
+  "postCreateCommand": "terraform --version && aws --version",
+
+  "postStartCommand": "echo 'Dev container ready!'",
+
+  "remoteUser": "vscode"
+}
