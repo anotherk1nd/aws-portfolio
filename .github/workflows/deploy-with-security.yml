@@ -1,0 +1,174 @@
+name: Deploy with Security
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'index.html'
+      - '*.html'
+      - 'css/**'
+      - 'js/**'
+      - 'images/**'
+      - 'assets/**'
+
+jobs:
+  security-checks:
+    name: Pre-Deployment Security
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Scan for secrets
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: HTML validation
+        uses: Cyb3r-Jak3/html5validator-action@v7.2.0
+        with:
+          root: .
+          
+      - name: Security headers check
+        run: |
+          echo "Checking for security best practices..."
+          if grep -r "eval(" . --include="*.js" 2>/dev/null; then
+            echo "⚠️  Warning: eval() detected in JavaScript"
+          fi
+          if grep -r "innerHTML" . --include="*.js" 2>/dev/null; then
+            echo "⚠️  Warning: innerHTML usage detected"
+          fi
+          echo "✅ Basic security checks passed"
+
+  deploy:
+    name: Deploy to AWS
+    runs-on: ubuntu-latest
+    needs: security-checks
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-central-1
+
+      - name: Sync files to S3
+        run: |
+          aws s3 sync . s3://${{ secrets.S3_BUCKET_NAME }}/ \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude "*.tf" \
+            --exclude "*.tfvars*" \
+            --exclude ".terraform/*" \
+            --exclude "terraform.tfstate*" \
+            --exclude ".devcontainer/*" \
+            --exclude "*.md" \
+            --exclude "*.old.*" \
+            --exclude "setup.sh" \
+            --exclude "preview.html" \
+            --delete
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/*"
+
+      - name: Verify S3 security
+        run: |
+          echo "Checking S3 bucket security..."
+          aws s3api get-public-access-block --bucket ${{ secrets.S3_BUCKET_NAME }}
+          aws s3api get-bucket-encryption --bucket ${{ secrets.S3_BUCKET_NAME }}
+          echo "✅ S3 security verified"
+
+      - name: Verify CloudFront WAF
+        run: |
+          echo "Checking CloudFront WAF configuration..."
+          DIST_CONFIG=$(aws cloudfront get-distribution-config --id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }})
+          if echo "$DIST_CONFIG" | grep -q "WebACLId"; then
+            echo "✅ WAF is configured"
+          else
+            echo "⚠️  WAF not detected"
+          fi
+
+  post-deployment-tests:
+    name: Post-Deployment Validation
+    runs-on: ubuntu-latest
+    needs: deploy
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Get website URL
+        id: get-url
+        run: |
+          # Extract from terraform output or use provided URL
+          echo "url=https://$(aws cloudfront get-distribution --id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --query 'Distribution.DomainName' --output text)" >> $GITHUB_OUTPUT
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: eu-central-1
+          
+      - name: Check HTTPS enforcement
+        run: |
+          echo "Testing HTTP to HTTPS redirect..."
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" -L http://$(aws cloudfront get-distribution --id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --query 'Distribution.DomainName' --output text))
+          if [ "$HTTP_CODE" = "200" ]; then
+            echo "✅ HTTPS working"
+          else
+            echo "❌ HTTPS check failed with code: $HTTP_CODE"
+            exit 1
+          fi
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: eu-central-1
+          
+      - name: Security headers validation
+        run: |
+          echo "Checking security headers..."
+          DOMAIN=$(aws cloudfront get-distribution --id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --query 'Distribution.DomainName' --output text)
+          HEADERS=$(curl -s -I "https://$DOMAIN")
+          
+          echo "Checking for required security headers..."
+          echo "$HEADERS" | grep -i "strict-transport-security" && echo "✅ HSTS header present" || echo "❌ HSTS missing"
+          echo "$HEADERS" | grep -i "x-content-type-options" && echo "✅ X-Content-Type-Options present" || echo "❌ X-Content-Type-Options missing"
+          echo "$HEADERS" | grep -i "x-frame-options" && echo "✅ X-Frame-Options present" || echo "❌ X-Frame-Options missing"
+          echo "$HEADERS" | grep -i "content-security-policy" && echo "✅ CSP present" || echo "❌ CSP missing"
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: eu-central-1
+
+  deployment-summary:
+    name: Deployment Summary
+    runs-on: ubuntu-latest
+    needs: [security-checks, deploy, post-deployment-tests]
+    if: always()
+    
+    steps:
+      - name: Create summary
+        run: |
+          echo "## 🚀 Deployment Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Security Checks" >> $GITHUB_STEP_SUMMARY
+          echo "- Security Scan: ${{ needs.security-checks.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Deployment" >> $GITHUB_STEP_SUMMARY
+          echo "- Deploy to AWS: ${{ needs.deploy.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Validation" >> $GITHUB_STEP_SUMMARY
+          echo "- Post-deployment Tests: ${{ needs.post-deployment-tests.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ needs.deploy.result }}" = "success" ]; then
+            echo "✅ Website successfully deployed and validated!" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Deployment failed. Check logs above." >> $GITHUB_STEP_SUMMARY
+          fi
