@@ -11,6 +11,12 @@ on:
     # Run daily at 9am UTC
     - cron: '0 9 * * *'
 
+# Permissions
+permissions:
+  contents: read
+  security-events: write  # ← This is critical
+  actions: read
+
 jobs:
   terraform-security:
     name: Terraform Security Scan
@@ -35,7 +41,7 @@ jobs:
           output_file_path: reports/checkov.sarif
           
       - name: Upload Checkov results to GitHub Security
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@v4
         if: always()
         with:
           sarif_file: reports/checkov.sarif

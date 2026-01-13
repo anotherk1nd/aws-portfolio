@@ -12,6 +12,12 @@ on:
       - 'images/**'
       - 'assets/**'
 
+# Add permissions
+permissions:
+  contents: read
+  security-events: write
+  id-token: write  # For AWS OIDC (optional future enhancement)
+
 jobs:
   security-checks:
     name: Pre-Deployment Security
