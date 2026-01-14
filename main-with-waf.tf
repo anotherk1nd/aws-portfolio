@@ -1,6 +1,6 @@
 terraform {
   required_version = ">= 1.0"
-  
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -50,6 +50,27 @@ resource "aws_s3_bucket_versioning" "website" {
   }
 }
 
+resource "aws_s3_bucket_lifecycle_configuration" "website" {
+  bucket = aws_s3_bucket.website.id
+
+  rule {
+    id     = "cleanup-old-versions"
+    status = "Enabled"
+    
+    filter {}  # ← ADD THIS LINE (empty filter = applies to all objects)
+
+    # Keep old versions for 30 days
+    noncurrent_version_expiration {
+      noncurrent_days = 30
+    }
+
+    # Clean up incomplete uploads
+    abort_incomplete_multipart_upload {
+      days_after_initiation = 1
+    }
+  }
+}
+
 resource "aws_s3_bucket_public_access_block" "website" {
   bucket = aws_s3_bucket.website.id
 
@@ -78,6 +99,48 @@ resource "aws_s3_bucket" "logs" {
     Name        = "Portfolio Website Logs"
     Environment = "Production"
     ManagedBy   = "Terraform"
+  }
+}
+
+resource "aws_s3_bucket_versioning" "logs" {
+  bucket = aws_s3_bucket.logs.id
+
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "logs" {
+  bucket = aws_s3_bucket.logs.id
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm = "AES256"
+    }
+    bucket_key_enabled = true
+  }
+}
+
+resource "aws_s3_bucket_lifecycle_configuration" "logs" {
+  bucket = aws_s3_bucket.logs.id
+
+  rule {
+    id     = "cleanup-old-logs"
+    status = "Enabled"
+    
+    filter {}  # ← ADD THIS LINE (empty filter = applies to all objects)
+    
+    noncurrent_version_expiration {
+      noncurrent_days = 7
+    }
+
+    expiration {
+      days = 90
+    }
+
+    abort_incomplete_multipart_upload {
+      days_after_initiation = 1
+    }
   }
 }
 

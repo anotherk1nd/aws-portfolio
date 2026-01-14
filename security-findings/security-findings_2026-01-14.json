@@ -1,0 +1,1159 @@
+[
+  {
+    "number": 22,
+    "created_at": "2026-01-13T11:06:42Z",
+    "updated_at": "2026-01-13T11:06:42Z",
+    "url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/22",
+    "html_url": "https://github.com/anotherk1nd/aws-portfolio/security/code-scanning/22",
+    "state": "open",
+    "fixed_at": null,
+    "dismissed_by": null,
+    "dismissed_at": null,
+    "dismissed_reason": null,
+    "dismissed_comment": null,
+    "rule": {
+      "id": "CKV_AWS_21",
+      "severity": "error",
+      "description": "Ensure all data stored in the S3 bucket have versioning enabled",
+      "name": "Ensure all data stored in the S3 bucket have versioning enabled",
+      "tags": [],
+      "full_description": "Ensure all data stored in the S3 bucket have versioning enabled",
+      "help": "Ensure all data stored in the S3 bucket have versioning enabled\nResource: aws_s3_bucket.logs",
+      "help_uri": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-16-enable-versioning"
+    },
+    "tool": {
+      "name": "checkov",
+      "guid": null,
+      "version": "3.2.497"
+    },
+    "most_recent_instance": {
+      "ref": "refs/heads/main",
+      "analysis_key": ".github/workflows/security-scan.yml:terraform-security",
+      "environment": "{}",
+      "category": ".github/workflows/security-scan.yml:terraform-security",
+      "state": "open",
+      "commit_sha": "ab50634551debaf2b76a1124bc618aa4b6bd71e2",
+      "message": {
+        "text": "Ensure all data stored in the S3 bucket have versioning enabled"
+      },
+      "location": {
+        "path": "main-with-waf.tf",
+        "start_line": 74,
+        "end_line": 82,
+        "start_column": 1,
+        "end_column": 0
+      },
+      "classifications": []
+    },
+    "instances_url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/22/instances",
+    "dismissal_approved_by": null,
+    "assignees": []
+  },
+  {
+    "number": 21,
+    "created_at": "2026-01-13T11:06:42Z",
+    "updated_at": "2026-01-13T11:06:42Z",
+    "url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/21",
+    "html_url": "https://github.com/anotherk1nd/aws-portfolio/security/code-scanning/21",
+    "state": "open",
+    "fixed_at": null,
+    "dismissed_by": null,
+    "dismissed_at": null,
+    "dismissed_reason": null,
+    "dismissed_comment": null,
+    "rule": {
+      "id": "CKV2_AWS_61",
+      "severity": "error",
+      "description": "Ensure that an S3 bucket has a lifecycle configuration",
+      "name": "Ensure that an S3 bucket has a lifecycle configuration",
+      "tags": [],
+      "full_description": "Ensure that an S3 bucket has a lifecycle configuration",
+      "help": "Ensure that an S3 bucket has a lifecycle configuration\nResource: aws_s3_bucket.website",
+      "help_uri": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-61"
+    },
+    "tool": {
+      "name": "checkov",
+      "guid": null,
+      "version": "3.2.497"
+    },
+    "most_recent_instance": {
+      "ref": "refs/heads/main",
+      "analysis_key": ".github/workflows/security-scan.yml:terraform-security",
+      "environment": "{}",
+      "category": ".github/workflows/security-scan.yml:terraform-security",
+      "state": "open",
+      "commit_sha": "ab50634551debaf2b76a1124bc618aa4b6bd71e2",
+      "message": {
+        "text": "Ensure that an S3 bucket has a lifecycle configuration"
+      },
+      "location": {
+        "path": "main-with-waf.tf",
+        "start_line": 74,
+        "end_line": 82,
+        "start_column": 1,
+        "end_column": 0
+      },
+      "classifications": []
+    },
+    "instances_url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/21/instances",
+    "dismissal_approved_by": null,
+    "assignees": []
+  },
+  {
+    "number": 20,
+    "created_at": "2026-01-13T11:06:42Z",
+    "updated_at": "2026-01-13T11:06:42Z",
+    "url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/20",
+    "html_url": "https://github.com/anotherk1nd/aws-portfolio/security/code-scanning/20",
+    "state": "open",
+    "fixed_at": null,
+    "dismissed_by": null,
+    "dismissed_at": null,
+    "dismissed_reason": null,
+    "dismissed_comment": null,
+    "rule": {
+      "id": "CKV2_AWS_61",
+      "severity": "error",
+      "description": "Ensure that an S3 bucket has a lifecycle configuration",
+      "name": "Ensure that an S3 bucket has a lifecycle configuration",
+      "tags": [],
+      "full_description": "Ensure that an S3 bucket has a lifecycle configuration",
+      "help": "Ensure that an S3 bucket has a lifecycle configuration\nResource: aws_s3_bucket.website",
+      "help_uri": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-61"
+    },
+    "tool": {
+      "name": "checkov",
+      "guid": null,
+      "version": "3.2.497"
+    },
+    "most_recent_instance": {
+      "ref": "refs/heads/main",
+      "analysis_key": ".github/workflows/security-scan.yml:terraform-security",
+      "environment": "{}",
+      "category": ".github/workflows/security-scan.yml:terraform-security",
+      "state": "open",
+      "commit_sha": "ab50634551debaf2b76a1124bc618aa4b6bd71e2",
+      "message": {
+        "text": "Ensure that an S3 bucket has a lifecycle configuration"
+      },
+      "location": {
+        "path": "main-with-waf.tf",
+        "start_line": 34,
+        "end_line": 43,
+        "start_column": 1,
+        "end_column": 0
+      },
+      "classifications": []
+    },
+    "instances_url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/20/instances",
+    "dismissal_approved_by": null,
+    "assignees": []
+  },
+  {
+    "number": 19,
+    "created_at": "2026-01-13T11:06:42Z",
+    "updated_at": "2026-01-13T11:06:42Z",
+    "url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/19",
+    "html_url": "https://github.com/anotherk1nd/aws-portfolio/security/code-scanning/19",
+    "state": "open",
+    "fixed_at": null,
+    "dismissed_by": null,
+    "dismissed_at": null,
+    "dismissed_reason": null,
+    "dismissed_comment": null,
+    "rule": {
+      "id": "CKV_AWS_144",
+      "severity": "error",
+      "description": "Ensure that S3 bucket has cross-region replication enabled",
+      "name": "Ensure that S3 bucket has cross-region replication enabled",
+      "tags": [],
+      "full_description": "Ensure that S3 bucket has cross-region replication enabled",
+      "help": "Ensure that S3 bucket has cross-region replication enabled\nResource: aws_s3_bucket.website",
+      "help_uri": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-s3-bucket-has-cross-region-replication-enabled"
+    },
+    "tool": {
+      "name": "checkov",
+      "guid": null,
+      "version": "3.2.497"
+    },
+    "most_recent_instance": {
+      "ref": "refs/heads/main",
+      "analysis_key": ".github/workflows/security-scan.yml:terraform-security",
+      "environment": "{}",
+      "category": ".github/workflows/security-scan.yml:terraform-security",
+      "state": "open",
+      "commit_sha": "ab50634551debaf2b76a1124bc618aa4b6bd71e2",
+      "message": {
+        "text": "Ensure that S3 bucket has cross-region replication enabled"
+      },
+      "location": {
+        "path": "main-with-waf.tf",
+        "start_line": 74,
+        "end_line": 82,
+        "start_column": 1,
+        "end_column": 0
+      },
+      "classifications": []
+    },
+    "instances_url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/19/instances",
+    "dismissal_approved_by": null,
+    "assignees": []
+  },
+  {
+    "number": 18,
+    "created_at": "2026-01-13T11:06:42Z",
+    "updated_at": "2026-01-13T11:06:42Z",
+    "url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/18",
+    "html_url": "https://github.com/anotherk1nd/aws-portfolio/security/code-scanning/18",
+    "state": "open",
+    "fixed_at": null,
+    "dismissed_by": null,
+    "dismissed_at": null,
+    "dismissed_reason": null,
+    "dismissed_comment": null,
+    "rule": {
+      "id": "CKV_AWS_144",
+      "severity": "error",
+      "description": "Ensure that S3 bucket has cross-region replication enabled",
+      "name": "Ensure that S3 bucket has cross-region replication enabled",
+      "tags": [],
+      "full_description": "Ensure that S3 bucket has cross-region replication enabled",
+      "help": "Ensure that S3 bucket has cross-region replication enabled\nResource: aws_s3_bucket.website",
+      "help_uri": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-s3-bucket-has-cross-region-replication-enabled"
+    },
+    "tool": {
+      "name": "checkov",
+      "guid": null,
+      "version": "3.2.497"
+    },
+    "most_recent_instance": {
+      "ref": "refs/heads/main",
+      "analysis_key": ".github/workflows/security-scan.yml:terraform-security",
+      "environment": "{}",
+      "category": ".github/workflows/security-scan.yml:terraform-security",
+      "state": "open",
+      "commit_sha": "ab50634551debaf2b76a1124bc618aa4b6bd71e2",
+      "message": {
+        "text": "Ensure that S3 bucket has cross-region replication enabled"
+      },
+      "location": {
+        "path": "main-with-waf.tf",
+        "start_line": 34,
+        "end_line": 43,
+        "start_column": 1,
+        "end_column": 0
+      },
+      "classifications": []
+    },
+    "instances_url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/18/instances",
+    "dismissal_approved_by": null,
+    "assignees": []
+  },
+  {
+    "number": 17,
+    "created_at": "2026-01-13T11:06:42Z",
+    "updated_at": "2026-01-13T11:06:42Z",
+    "url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/17",
+    "html_url": "https://github.com/anotherk1nd/aws-portfolio/security/code-scanning/17",
+    "state": "open",
+    "fixed_at": null,
+    "dismissed_by": null,
+    "dismissed_at": null,
+    "dismissed_reason": null,
+    "dismissed_comment": null,
+    "rule": {
+      "id": "CKV2_AWS_42",
+      "severity": "error",
+      "description": "Ensure AWS CloudFront distribution uses custom SSL certificate",
+      "name": "Ensure AWS CloudFront distribution uses custom SSL certificate",
+      "tags": [],
+      "full_description": "Ensure AWS CloudFront distribution uses custom SSL certificate",
+      "help": "Ensure AWS CloudFront distribution uses custom SSL certificate\nResource: aws_cloudfront_distribution.website",
+      "help_uri": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-cloudfront-distribution-uses-custom-ssl-certificate"
+    },
+    "tool": {
+      "name": "checkov",
+      "guid": null,
+      "version": "3.2.497"
+    },
+    "most_recent_instance": {
+      "ref": "refs/heads/main",
+      "analysis_key": ".github/workflows/security-scan.yml:terraform-security",
+      "environment": "{}",
+      "category": ".github/workflows/security-scan.yml:terraform-security",
+      "state": "open",
+      "commit_sha": "ab50634551debaf2b76a1124bc618aa4b6bd71e2",
+      "message": {
+        "text": "Ensure AWS CloudFront distribution uses custom SSL certificate"
+      },
+      "location": {
+        "path": "main-with-waf.tf",
+        "start_line": 297,
+        "end_line": 353,
+        "start_column": 1,
+        "end_column": 0
+      },
+      "classifications": []
+    },
+    "instances_url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/17/instances",
+    "dismissal_approved_by": null,
+    "assignees": []
+  },
+  {
+    "number": 16,
+    "created_at": "2026-01-13T11:06:42Z",
+    "updated_at": "2026-01-13T11:06:42Z",
+    "url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/16",
+    "html_url": "https://github.com/anotherk1nd/aws-portfolio/security/code-scanning/16",
+    "state": "open",
+    "fixed_at": null,
+    "dismissed_by": null,
+    "dismissed_at": null,
+    "dismissed_reason": null,
+    "dismissed_comment": null,
+    "rule": {
+      "id": "CKV2_AWS_62",
+      "severity": "error",
+      "description": "Ensure S3 buckets should have event notifications enabled",
+      "name": "Ensure S3 buckets should have event notifications enabled",
+      "tags": [],
+      "full_description": "Ensure S3 buckets should have event notifications enabled",
+      "help": "Ensure S3 buckets should have event notifications enabled\nResource: aws_s3_bucket.website",
+      "help_uri": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-62"
+    },
+    "tool": {
+      "name": "checkov",
+      "guid": null,
+      "version": "3.2.497"
+    },
+    "most_recent_instance": {
+      "ref": "refs/heads/main",
+      "analysis_key": ".github/workflows/security-scan.yml:terraform-security",
+      "environment": "{}",
+      "category": ".github/workflows/security-scan.yml:terraform-security",
+      "state": "open",
+      "commit_sha": "ab50634551debaf2b76a1124bc618aa4b6bd71e2",
+      "message": {
+        "text": "Ensure S3 buckets should have event notifications enabled"
+      },
+      "location": {
+        "path": "main-with-waf.tf",
+        "start_line": 74,
+        "end_line": 82,
+        "start_column": 1,
+        "end_column": 0
+      },
+      "classifications": []
+    },
+    "instances_url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/16/instances",
+    "dismissal_approved_by": null,
+    "assignees": []
+  },
+  {
+    "number": 15,
+    "created_at": "2026-01-13T11:06:42Z",
+    "updated_at": "2026-01-13T11:06:42Z",
+    "url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/15",
+    "html_url": "https://github.com/anotherk1nd/aws-portfolio/security/code-scanning/15",
+    "state": "open",
+    "fixed_at": null,
+    "dismissed_by": null,
+    "dismissed_at": null,
+    "dismissed_reason": null,
+    "dismissed_comment": null,
+    "rule": {
+      "id": "CKV2_AWS_62",
+      "severity": "error",
+      "description": "Ensure S3 buckets should have event notifications enabled",
+      "name": "Ensure S3 buckets should have event notifications enabled",
+      "tags": [],
+      "full_description": "Ensure S3 buckets should have event notifications enabled",
+      "help": "Ensure S3 buckets should have event notifications enabled\nResource: aws_s3_bucket.website",
+      "help_uri": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-62"
+    },
+    "tool": {
+      "name": "checkov",
+      "guid": null,
+      "version": "3.2.497"
+    },
+    "most_recent_instance": {
+      "ref": "refs/heads/main",
+      "analysis_key": ".github/workflows/security-scan.yml:terraform-security",
+      "environment": "{}",
+      "category": ".github/workflows/security-scan.yml:terraform-security",
+      "state": "open",
+      "commit_sha": "ab50634551debaf2b76a1124bc618aa4b6bd71e2",
+      "message": {
+        "text": "Ensure S3 buckets should have event notifications enabled"
+      },
+      "location": {
+        "path": "main-with-waf.tf",
+        "start_line": 34,
+        "end_line": 43,
+        "start_column": 1,
+        "end_column": 0
+      },
+      "classifications": []
+    },
+    "instances_url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/15/instances",
+    "dismissal_approved_by": null,
+    "assignees": []
+  },
+  {
+    "number": 14,
+    "created_at": "2026-01-13T11:06:42Z",
+    "updated_at": "2026-01-13T11:06:42Z",
+    "url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/14",
+    "html_url": "https://github.com/anotherk1nd/aws-portfolio/security/code-scanning/14",
+    "state": "open",
+    "fixed_at": null,
+    "dismissed_by": null,
+    "dismissed_at": null,
+    "dismissed_reason": null,
+    "dismissed_comment": null,
+    "rule": {
+      "id": "CKV2_AWS_47",
+      "severity": "error",
+      "description": "Ensure AWS CloudFront attached WAFv2 WebACL is configured with AMR for Log4j Vulnerability",
+      "name": "Ensure AWS CloudFront attached WAFv2 WebACL is configured with AMR for Log4j Vulnerability",
+      "tags": [],
+      "full_description": "Ensure AWS CloudFront attached WAFv2 WebACL is configured with AMR for Log4j Vulnerability",
+      "help": "Ensure AWS CloudFront attached WAFv2 WebACL is configured with AMR for Log4j Vulnerability\nResource: aws_cloudfront_distribution.website",
+      "help_uri": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-general-47"
+    },
+    "tool": {
+      "name": "checkov",
+      "guid": null,
+      "version": "3.2.497"
+    },
+    "most_recent_instance": {
+      "ref": "refs/heads/main",
+      "analysis_key": ".github/workflows/security-scan.yml:terraform-security",
+      "environment": "{}",
+      "category": ".github/workflows/security-scan.yml:terraform-security",
+      "state": "open",
+      "commit_sha": "ab50634551debaf2b76a1124bc618aa4b6bd71e2",
+      "message": {
+        "text": "Ensure AWS CloudFront attached WAFv2 WebACL is configured with AMR for Log4j Vulnerability"
+      },
+      "location": {
+        "path": "main-with-waf.tf",
+        "start_line": 297,
+        "end_line": 353,
+        "start_column": 1,
+        "end_column": 0
+      },
+      "classifications": []
+    },
+    "instances_url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/14/instances",
+    "dismissal_approved_by": null,
+    "assignees": []
+  },
+  {
+    "number": 13,
+    "created_at": "2026-01-13T11:06:42Z",
+    "updated_at": "2026-01-13T11:06:42Z",
+    "url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/13",
+    "html_url": "https://github.com/anotherk1nd/aws-portfolio/security/code-scanning/13",
+    "state": "open",
+    "fixed_at": null,
+    "dismissed_by": null,
+    "dismissed_at": null,
+    "dismissed_reason": null,
+    "dismissed_comment": null,
+    "rule": {
+      "id": "CKV2_AWS_31",
+      "severity": "error",
+      "description": "Ensure WAF2 has a Logging Configuration",
+      "name": "Ensure WAF2 has a Logging Configuration",
+      "tags": [],
+      "full_description": "Ensure WAF2 has a Logging Configuration",
+      "help": "Ensure WAF2 has a Logging Configuration\nResource: aws_wafv2_web_acl.cloudfront[0]",
+      "help_uri": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-logging-33"
+    },
+    "tool": {
+      "name": "checkov",
+      "guid": null,
+      "version": "3.2.497"
+    },
+    "most_recent_instance": {
+      "ref": "refs/heads/main",
+      "analysis_key": ".github/workflows/security-scan.yml:terraform-security",
+      "environment": "{}",
+      "category": ".github/workflows/security-scan.yml:terraform-security",
+      "state": "open",
+      "commit_sha": "ab50634551debaf2b76a1124bc618aa4b6bd71e2",
+      "message": {
+        "text": "Ensure WAF2 has a Logging Configuration"
+      },
+      "location": {
+        "path": "main-with-waf.tf",
+        "start_line": 110,
+        "end_line": 247,
+        "start_column": 1,
+        "end_column": 0
+      },
+      "classifications": []
+    },
+    "instances_url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/13/instances",
+    "dismissal_approved_by": null,
+    "assignees": []
+  },
+  {
+    "number": 12,
+    "created_at": "2026-01-13T11:06:42Z",
+    "updated_at": "2026-01-13T11:06:42Z",
+    "url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/12",
+    "html_url": "https://github.com/anotherk1nd/aws-portfolio/security/code-scanning/12",
+    "state": "open",
+    "fixed_at": null,
+    "dismissed_by": null,
+    "dismissed_at": null,
+    "dismissed_reason": null,
+    "dismissed_comment": null,
+    "rule": {
+      "id": "CKV_AWS_145",
+      "severity": "error",
+      "description": "Ensure that S3 buckets are encrypted with KMS by default",
+      "name": "Ensure that S3 buckets are encrypted with KMS by default",
+      "tags": [],
+      "full_description": "Ensure that S3 buckets are encrypted with KMS by default",
+      "help": "Ensure that S3 buckets are encrypted with KMS by default\nResource: aws_s3_bucket.website",
+      "help_uri": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-s3-buckets-are-encrypted-with-kms-by-default"
+    },
+    "tool": {
+      "name": "checkov",
+      "guid": null,
+      "version": "3.2.497"
+    },
+    "most_recent_instance": {
+      "ref": "refs/heads/main",
+      "analysis_key": ".github/workflows/security-scan.yml:terraform-security",
+      "environment": "{}",
+      "category": ".github/workflows/security-scan.yml:terraform-security",
+      "state": "open",
+      "commit_sha": "ab50634551debaf2b76a1124bc618aa4b6bd71e2",
+      "message": {
+        "text": "Ensure that S3 buckets are encrypted with KMS by default"
+      },
+      "location": {
+        "path": "main-with-waf.tf",
+        "start_line": 74,
+        "end_line": 82,
+        "start_column": 1,
+        "end_column": 0
+      },
+      "classifications": []
+    },
+    "instances_url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/12/instances",
+    "dismissal_approved_by": null,
+    "assignees": []
+  },
+  {
+    "number": 11,
+    "created_at": "2026-01-13T11:06:42Z",
+    "updated_at": "2026-01-13T11:06:42Z",
+    "url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/11",
+    "html_url": "https://github.com/anotherk1nd/aws-portfolio/security/code-scanning/11",
+    "state": "open",
+    "fixed_at": null,
+    "dismissed_by": null,
+    "dismissed_at": null,
+    "dismissed_reason": null,
+    "dismissed_comment": null,
+    "rule": {
+      "id": "CKV_AWS_145",
+      "severity": "error",
+      "description": "Ensure that S3 buckets are encrypted with KMS by default",
+      "name": "Ensure that S3 buckets are encrypted with KMS by default",
+      "tags": [],
+      "full_description": "Ensure that S3 buckets are encrypted with KMS by default",
+      "help": "Ensure that S3 buckets are encrypted with KMS by default\nResource: aws_s3_bucket.website",
+      "help_uri": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-s3-buckets-are-encrypted-with-kms-by-default"
+    },
+    "tool": {
+      "name": "checkov",
+      "guid": null,
+      "version": "3.2.497"
+    },
+    "most_recent_instance": {
+      "ref": "refs/heads/main",
+      "analysis_key": ".github/workflows/security-scan.yml:terraform-security",
+      "environment": "{}",
+      "category": ".github/workflows/security-scan.yml:terraform-security",
+      "state": "open",
+      "commit_sha": "ab50634551debaf2b76a1124bc618aa4b6bd71e2",
+      "message": {
+        "text": "Ensure that S3 buckets are encrypted with KMS by default"
+      },
+      "location": {
+        "path": "main-with-waf.tf",
+        "start_line": 34,
+        "end_line": 43,
+        "start_column": 1,
+        "end_column": 0
+      },
+      "classifications": []
+    },
+    "instances_url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/11/instances",
+    "dismissal_approved_by": null,
+    "assignees": []
+  },
+  {
+    "number": 10,
+    "created_at": "2026-01-13T11:06:42Z",
+    "updated_at": "2026-01-13T11:06:42Z",
+    "url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/10",
+    "html_url": "https://github.com/anotherk1nd/aws-portfolio/security/code-scanning/10",
+    "state": "open",
+    "fixed_at": null,
+    "dismissed_by": null,
+    "dismissed_at": null,
+    "dismissed_reason": null,
+    "dismissed_comment": null,
+    "rule": {
+      "id": "CKV_AWS_310",
+      "severity": "error",
+      "description": "Ensure CloudFront distributions should have origin failover configured",
+      "name": "Ensure CloudFront distributions should have origin failover configured",
+      "tags": [],
+      "full_description": "Ensure CloudFront distributions should have origin failover configured",
+      "help": "Ensure CloudFront distributions should have origin failover configured\nResource: aws_cloudfront_distribution.website",
+      "help_uri": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-310"
+    },
+    "tool": {
+      "name": "checkov",
+      "guid": null,
+      "version": "3.2.497"
+    },
+    "most_recent_instance": {
+      "ref": "refs/heads/main",
+      "analysis_key": ".github/workflows/security-scan.yml:terraform-security",
+      "environment": "{}",
+      "category": ".github/workflows/security-scan.yml:terraform-security",
+      "state": "open",
+      "commit_sha": "ab50634551debaf2b76a1124bc618aa4b6bd71e2",
+      "message": {
+        "text": "Ensure CloudFront distributions should have origin failover configured"
+      },
+      "location": {
+        "path": "main-with-waf.tf",
+        "start_line": 297,
+        "end_line": 353,
+        "start_column": 1,
+        "end_column": 0
+      },
+      "classifications": []
+    },
+    "instances_url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/10/instances",
+    "dismissal_approved_by": null,
+    "assignees": []
+  },
+  {
+    "number": 9,
+    "created_at": "2026-01-13T11:06:42Z",
+    "updated_at": "2026-01-13T11:06:42Z",
+    "url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/9",
+    "html_url": "https://github.com/anotherk1nd/aws-portfolio/security/code-scanning/9",
+    "state": "open",
+    "fixed_at": null,
+    "dismissed_by": null,
+    "dismissed_at": null,
+    "dismissed_reason": null,
+    "dismissed_comment": null,
+    "rule": {
+      "id": "CKV_AWS_174",
+      "severity": "error",
+      "description": "Verify CloudFront Distribution Viewer Certificate is using TLS v1.2 or higher",
+      "name": "Verify CloudFront Distribution Viewer Certificate is using TLS v1.2 or higher",
+      "tags": [],
+      "full_description": "Verify CloudFront Distribution Viewer Certificate is using TLS v1.2 or higher",
+      "help": "Verify CloudFront Distribution Viewer Certificate is using TLS v1.2 or higher\nResource: aws_cloudfront_distribution.website",
+      "help_uri": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/bc-aws-networking-63"
+    },
+    "tool": {
+      "name": "checkov",
+      "guid": null,
+      "version": "3.2.497"
+    },
+    "most_recent_instance": {
+      "ref": "refs/heads/main",
+      "analysis_key": ".github/workflows/security-scan.yml:terraform-security",
+      "environment": "{}",
+      "category": ".github/workflows/security-scan.yml:terraform-security",
+      "state": "open",
+      "commit_sha": "ab50634551debaf2b76a1124bc618aa4b6bd71e2",
+      "message": {
+        "text": "Verify CloudFront Distribution Viewer Certificate is using TLS v1.2 or higher"
+      },
+      "location": {
+        "path": "main-with-waf.tf",
+        "start_line": 297,
+        "end_line": 353,
+        "start_column": 1,
+        "end_column": 0
+      },
+      "classifications": []
+    },
+    "instances_url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/9/instances",
+    "dismissal_approved_by": null,
+    "assignees": []
+  },
+  {
+    "number": 8,
+    "created_at": "2026-01-13T11:06:42Z",
+    "updated_at": "2026-01-13T11:06:42Z",
+    "url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/8",
+    "html_url": "https://github.com/anotherk1nd/aws-portfolio/security/code-scanning/8",
+    "state": "open",
+    "fixed_at": null,
+    "dismissed_by": null,
+    "dismissed_at": null,
+    "dismissed_reason": null,
+    "dismissed_comment": null,
+    "rule": {
+      "id": "CKV_AWS_374",
+      "severity": "error",
+      "description": "Ensure AWS CloudFront web distribution has geo restriction enabled",
+      "name": "Ensure AWS CloudFront web distribution has geo restriction enabled",
+      "tags": [],
+      "full_description": "Ensure AWS CloudFront web distribution has geo restriction enabled",
+      "help": "Ensure AWS CloudFront web distribution has geo restriction enabled\nResource: aws_cloudfront_distribution.website",
+      "help_uri": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/bc-aws-374"
+    },
+    "tool": {
+      "name": "checkov",
+      "guid": null,
+      "version": "3.2.497"
+    },
+    "most_recent_instance": {
+      "ref": "refs/heads/main",
+      "analysis_key": ".github/workflows/security-scan.yml:terraform-security",
+      "environment": "{}",
+      "category": ".github/workflows/security-scan.yml:terraform-security",
+      "state": "open",
+      "commit_sha": "ab50634551debaf2b76a1124bc618aa4b6bd71e2",
+      "message": {
+        "text": "Ensure AWS CloudFront web distribution has geo restriction enabled"
+      },
+      "location": {
+        "path": "main-with-waf.tf",
+        "start_line": 297,
+        "end_line": 353,
+        "start_column": 1,
+        "end_column": 0
+      },
+      "classifications": []
+    },
+    "instances_url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/8/instances",
+    "dismissal_approved_by": null,
+    "assignees": []
+  },
+  {
+    "number": 7,
+    "created_at": "2026-01-13T11:06:26Z",
+    "updated_at": "2026-01-13T11:06:26Z",
+    "url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/7",
+    "html_url": "https://github.com/anotherk1nd/aws-portfolio/security/code-scanning/7",
+    "state": "open",
+    "fixed_at": null,
+    "dismissed_by": null,
+    "dismissed_at": null,
+    "dismissed_reason": null,
+    "dismissed_comment": null,
+    "rule": {
+      "id": "AVD-AWS-0132",
+      "severity": "error",
+      "description": "S3 encryption should use Customer Managed Keys",
+      "name": "Misconfiguration",
+      "tags": [
+        "HIGH",
+        "misconfiguration",
+        "security"
+      ],
+      "full_description": "Encryption using AWS keys provides protection for your S3 buckets. To increase control of the encryption and manage factors like rotation use customer managed keys.\n",
+      "help": "**Misconfiguration AVD-AWS-0132**\n| Type | Severity | Check | Message | Link |\n| --- | --- | --- | --- | --- |\n|Terraform Security Check|HIGH|S3 encryption should use Customer Managed Keys|Bucket does not encrypt data with a customer managed key.|[AVD-AWS-0132](https://avd.aquasec.com/misconfig/avd-aws-0132)|\n\nEncryption using AWS keys provides protection for your S3 buckets. To increase control of the encryption and manage factors like rotation use customer managed keys.\n",
+      "help_uri": "https://avd.aquasec.com/misconfig/avd-aws-0132",
+      "security_severity_level": "high"
+    },
+    "tool": {
+      "name": "Trivy",
+      "guid": null,
+      "version": "0.68.1"
+    },
+    "most_recent_instance": {
+      "ref": "refs/heads/main",
+      "analysis_key": ".github/workflows/security-scan.yml:container-security",
+      "environment": "{}",
+      "category": ".github/workflows/security-scan.yml:container-security",
+      "state": "open",
+      "commit_sha": "ab50634551debaf2b76a1124bc618aa4b6bd71e2",
+      "message": {
+        "text": "Artifact: main-with-waf.tf\nType: terraform\nVulnerability AVD-AWS-0132\nSeverity: HIGH\nMessage: Bucket does not encrypt data with a customer managed key.\nLink: [AVD-AWS-0132](https://avd.aquasec.com/misconfig/avd-aws-0132)"
+      },
+      "location": {
+        "path": "main-with-waf.tf",
+        "start_line": 62,
+        "end_line": 71,
+        "start_column": 1,
+        "end_column": 1
+      },
+      "classifications": []
+    },
+    "instances_url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/7/instances",
+    "dismissal_approved_by": null,
+    "assignees": [
+      {
+        "login": "anotherk1nd",
+        "id": 26300506,
+        "node_id": "MDQ6VXNlcjI2MzAwNTA2",
+        "avatar_url": "https://avatars.githubusercontent.com/u/26300506?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/anotherk1nd",
+        "html_url": "https://github.com/anotherk1nd",
+        "followers_url": "https://api.github.com/users/anotherk1nd/followers",
+        "following_url": "https://api.github.com/users/anotherk1nd/following{/other_user}",
+        "gists_url": "https://api.github.com/users/anotherk1nd/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/anotherk1nd/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/anotherk1nd/subscriptions",
+        "organizations_url": "https://api.github.com/users/anotherk1nd/orgs",
+        "repos_url": "https://api.github.com/users/anotherk1nd/repos",
+        "events_url": "https://api.github.com/users/anotherk1nd/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/anotherk1nd/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      }
+    ]
+  },
+  {
+    "number": 6,
+    "created_at": "2026-01-13T11:06:26Z",
+    "updated_at": "2026-01-13T11:06:26Z",
+    "url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/6",
+    "html_url": "https://github.com/anotherk1nd/aws-portfolio/security/code-scanning/6",
+    "state": "open",
+    "fixed_at": null,
+    "dismissed_by": null,
+    "dismissed_at": null,
+    "dismissed_reason": null,
+    "dismissed_comment": null,
+    "rule": {
+      "id": "AVD-AWS-0132",
+      "severity": "error",
+      "description": "S3 encryption should use Customer Managed Keys",
+      "name": "Misconfiguration",
+      "tags": [
+        "HIGH",
+        "misconfiguration",
+        "security"
+      ],
+      "full_description": "Encryption using AWS keys provides protection for your S3 buckets. To increase control of the encryption and manage factors like rotation use customer managed keys.\n",
+      "help": "**Misconfiguration AVD-AWS-0132**\n| Type | Severity | Check | Message | Link |\n| --- | --- | --- | --- | --- |\n|Terraform Security Check|HIGH|S3 encryption should use Customer Managed Keys|Bucket does not encrypt data with a customer managed key.|[AVD-AWS-0132](https://avd.aquasec.com/misconfig/avd-aws-0132)|\n\nEncryption using AWS keys provides protection for your S3 buckets. To increase control of the encryption and manage factors like rotation use customer managed keys.\n",
+      "help_uri": "https://avd.aquasec.com/misconfig/avd-aws-0132",
+      "security_severity_level": "high"
+    },
+    "tool": {
+      "name": "Trivy",
+      "guid": null,
+      "version": "0.68.1"
+    },
+    "most_recent_instance": {
+      "ref": "refs/heads/main",
+      "analysis_key": ".github/workflows/security-scan.yml:container-security",
+      "environment": "{}",
+      "category": ".github/workflows/security-scan.yml:container-security",
+      "state": "open",
+      "commit_sha": "ab50634551debaf2b76a1124bc618aa4b6bd71e2",
+      "message": {
+        "text": "Artifact: main-with-waf.tf\nType: terraform\nVulnerability AVD-AWS-0132\nSeverity: HIGH\nMessage: Bucket does not encrypt data with a customer managed key.\nLink: [AVD-AWS-0132](https://avd.aquasec.com/misconfig/avd-aws-0132)"
+      },
+      "location": {
+        "path": "main-with-waf.tf",
+        "start_line": 74,
+        "end_line": 82,
+        "start_column": 1,
+        "end_column": 1
+      },
+      "classifications": []
+    },
+    "instances_url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/6/instances",
+    "dismissal_approved_by": null,
+    "assignees": []
+  },
+  {
+    "number": 5,
+    "created_at": "2026-01-13T11:06:26Z",
+    "updated_at": "2026-01-13T11:06:26Z",
+    "url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/5",
+    "html_url": "https://github.com/anotherk1nd/aws-portfolio/security/code-scanning/5",
+    "state": "open",
+    "fixed_at": null,
+    "dismissed_by": null,
+    "dismissed_at": null,
+    "dismissed_reason": null,
+    "dismissed_comment": null,
+    "rule": {
+      "id": "AVD-AWS-0090",
+      "severity": "warning",
+      "description": "S3 Data should be versioned",
+      "name": "Misconfiguration",
+      "tags": [
+        "MEDIUM",
+        "misconfiguration",
+        "security"
+      ],
+      "full_description": "Versioning in Amazon S3 is a means of keeping multiple variants of an object in the same bucket.\n\nYou can use the S3 Versioning feature to preserve, retrieve, and restore every version of every object stored in your buckets.\n\nWith versioning you can recover more easily from both unintended user actions and application failures.\n\nWhen you enable versioning, also keep in mind the potential costs of storing noncurrent versions of objects. To help manage those costs, consider setting up an S3 Lifecycle configuration.\n",
+      "help": "**Misconfiguration AVD-AWS-0090**\n| Type | Severity | Check | Message | Link |\n| --- | --- | --- | --- | --- |\n|Terraform Security Check|MEDIUM|S3 Data should be versioned|Bucket does not have versioning enabled|[AVD-AWS-0090](https://avd.aquasec.com/misconfig/avd-aws-0090)|\n\nVersioning in Amazon S3 is a means of keeping multiple variants of an object in the same bucket.\n\nYou can use the S3 Versioning feature to preserve, retrieve, and restore every version of every object stored in your buckets.\n\nWith versioning you can recover more easily from both unintended user actions and application failures.\n\nWhen you enable versioning, also keep in mind the potential costs of storing noncurrent versions of objects. To help manage those costs, consider setting up an S3 Lifecycle configuration.\n",
+      "help_uri": "https://avd.aquasec.com/misconfig/avd-aws-0090",
+      "security_severity_level": "medium"
+    },
+    "tool": {
+      "name": "Trivy",
+      "guid": null,
+      "version": "0.68.1"
+    },
+    "most_recent_instance": {
+      "ref": "refs/heads/main",
+      "analysis_key": ".github/workflows/security-scan.yml:container-security",
+      "environment": "{}",
+      "category": ".github/workflows/security-scan.yml:container-security",
+      "state": "open",
+      "commit_sha": "ab50634551debaf2b76a1124bc618aa4b6bd71e2",
+      "message": {
+        "text": "Artifact: main-with-waf.tf\nType: terraform\nVulnerability AVD-AWS-0090\nSeverity: MEDIUM\nMessage: Bucket does not have versioning enabled\nLink: [AVD-AWS-0090](https://avd.aquasec.com/misconfig/avd-aws-0090)"
+      },
+      "location": {
+        "path": "main-with-waf.tf",
+        "start_line": 74,
+        "end_line": 82,
+        "start_column": 1,
+        "end_column": 1
+      },
+      "classifications": []
+    },
+    "instances_url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/5/instances",
+    "dismissal_approved_by": null,
+    "assignees": []
+  },
+  {
+    "number": 4,
+    "created_at": "2026-01-13T11:06:26Z",
+    "updated_at": "2026-01-13T11:06:26Z",
+    "url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/4",
+    "html_url": "https://github.com/anotherk1nd/aws-portfolio/security/code-scanning/4",
+    "state": "open",
+    "fixed_at": null,
+    "dismissed_by": null,
+    "dismissed_at": null,
+    "dismissed_reason": null,
+    "dismissed_comment": null,
+    "rule": {
+      "id": "s3-bucket-logging",
+      "severity": "note",
+      "description": "S3 Bucket Logging",
+      "name": "Misconfiguration",
+      "tags": [
+        "LOW",
+        "misconfiguration",
+        "security"
+      ],
+      "full_description": "Ensures S3 bucket logging is enabled for S3 buckets",
+      "help": "**Misconfiguration s3-bucket-logging**\n| Type | Severity | Check | Message | Link |\n| --- | --- | --- | --- | --- |\n|Terraform Security Check|LOW|S3 Bucket Logging|Bucket has logging disabled|[s3-bucket-logging](https://avd.aquasec.com/misconfig/s3-bucket-logging)|\n\nEnsures S3 bucket logging is enabled for S3 buckets",
+      "help_uri": "https://avd.aquasec.com/misconfig/s3-bucket-logging",
+      "security_severity_level": "low"
+    },
+    "tool": {
+      "name": "Trivy",
+      "guid": null,
+      "version": "0.68.1"
+    },
+    "most_recent_instance": {
+      "ref": "refs/heads/main",
+      "analysis_key": ".github/workflows/security-scan.yml:container-security",
+      "environment": "{}",
+      "category": ".github/workflows/security-scan.yml:container-security",
+      "state": "open",
+      "commit_sha": "ab50634551debaf2b76a1124bc618aa4b6bd71e2",
+      "message": {
+        "text": "Artifact: main-with-waf.tf\nType: terraform\nVulnerability s3-bucket-logging\nSeverity: LOW\nMessage: Bucket has logging disabled\nLink: [s3-bucket-logging](https://avd.aquasec.com/misconfig/s3-bucket-logging)"
+      },
+      "location": {
+        "path": "main-with-waf.tf",
+        "start_line": 74,
+        "end_line": 82,
+        "start_column": 1,
+        "end_column": 1
+      },
+      "classifications": []
+    },
+    "instances_url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/4/instances",
+    "dismissal_approved_by": null,
+    "assignees": []
+  },
+  {
+    "number": 3,
+    "created_at": "2026-01-13T11:06:26Z",
+    "updated_at": "2026-01-13T11:06:26Z",
+    "url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/3",
+    "html_url": "https://github.com/anotherk1nd/aws-portfolio/security/code-scanning/3",
+    "state": "open",
+    "fixed_at": null,
+    "dismissed_by": null,
+    "dismissed_at": null,
+    "dismissed_reason": null,
+    "dismissed_comment": null,
+    "rule": {
+      "id": "AVD-AWS-0088",
+      "severity": "error",
+      "description": "Unencrypted S3 bucket.",
+      "name": "Misconfiguration",
+      "tags": [
+        "HIGH",
+        "misconfiguration",
+        "security"
+      ],
+      "full_description": "S3 Buckets should be encrypted to protect the data that is stored within them if access is compromised.\n",
+      "help": "**Misconfiguration AVD-AWS-0088**\n| Type | Severity | Check | Message | Link |\n| --- | --- | --- | --- | --- |\n|Terraform Security Check|HIGH|Unencrypted S3 bucket.|Bucket does not have encryption enabled|[AVD-AWS-0088](https://avd.aquasec.com/misconfig/avd-aws-0088)|\n\nS3 Buckets should be encrypted to protect the data that is stored within them if access is compromised.\n",
+      "help_uri": "https://avd.aquasec.com/misconfig/avd-aws-0088",
+      "security_severity_level": "high"
+    },
+    "tool": {
+      "name": "Trivy",
+      "guid": null,
+      "version": "0.68.1"
+    },
+    "most_recent_instance": {
+      "ref": "refs/heads/main",
+      "analysis_key": ".github/workflows/security-scan.yml:container-security",
+      "environment": "{}",
+      "category": ".github/workflows/security-scan.yml:container-security",
+      "state": "open",
+      "commit_sha": "ab50634551debaf2b76a1124bc618aa4b6bd71e2",
+      "message": {
+        "text": "Artifact: main-with-waf.tf\nType: terraform\nVulnerability AVD-AWS-0088\nSeverity: HIGH\nMessage: Bucket does not have encryption enabled\nLink: [AVD-AWS-0088](https://avd.aquasec.com/misconfig/avd-aws-0088)"
+      },
+      "location": {
+        "path": "main-with-waf.tf",
+        "start_line": 74,
+        "end_line": 82,
+        "start_column": 1,
+        "end_column": 1
+      },
+      "classifications": []
+    },
+    "instances_url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/3/instances",
+    "dismissal_approved_by": null,
+    "assignees": []
+  },
+  {
+    "number": 2,
+    "created_at": "2026-01-13T11:06:26Z",
+    "updated_at": "2026-01-13T11:06:26Z",
+    "url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/2",
+    "html_url": "https://github.com/anotherk1nd/aws-portfolio/security/code-scanning/2",
+    "state": "open",
+    "fixed_at": null,
+    "dismissed_by": null,
+    "dismissed_at": null,
+    "dismissed_reason": null,
+    "dismissed_comment": null,
+    "rule": {
+      "id": "DS029",
+      "severity": "error",
+      "description": "'apt-get' missing '--no-install-recommends'",
+      "name": "Misconfiguration",
+      "tags": [
+        "HIGH",
+        "misconfiguration",
+        "security"
+      ],
+      "full_description": "'apt-get' install should use '--no-install-recommends' to minimize image size.",
+      "help": "**Misconfiguration DS029**\n| Type | Severity | Check | Message | Link |\n| --- | --- | --- | --- | --- |\n|Dockerfile Security Check|HIGH|'apt-get' missing '--no-install-recommends'|'--no-install-recommends' flag is missed: 'apt-get update && apt-get install -y     curl     unzip     git     vim     jq     && rm -rf /var/lib/apt/lists/*'|[DS029](https://avd.aquasec.com/misconfig/ds029)|\n\n'apt-get' install should use '--no-install-recommends' to minimize image size.",
+      "help_uri": "https://avd.aquasec.com/misconfig/ds029",
+      "security_severity_level": "high"
+    },
+    "tool": {
+      "name": "Trivy",
+      "guid": null,
+      "version": "0.68.1"
+    },
+    "most_recent_instance": {
+      "ref": "refs/heads/main",
+      "analysis_key": ".github/workflows/security-scan.yml:container-security",
+      "environment": "{}",
+      "category": ".github/workflows/security-scan.yml:container-security",
+      "state": "open",
+      "commit_sha": "ab50634551debaf2b76a1124bc618aa4b6bd71e2",
+      "message": {
+        "text": "Artifact: Dockerfile\nType: dockerfile\nVulnerability DS029\nSeverity: HIGH\nMessage: '--no-install-recommends' flag is missed: 'apt-get update && apt-get install -y     curl     unzip     git     vim     jq     && rm -rf /var/lib/apt/lists/*'\nLink: [DS029](https://avd.aquasec.com/misconfig/ds029)"
+      },
+      "location": {
+        "path": "Dockerfile",
+        "start_line": 4,
+        "end_line": 10,
+        "start_column": 1,
+        "end_column": 1
+      },
+      "classifications": []
+    },
+    "instances_url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/2/instances",
+    "dismissal_approved_by": null,
+    "assignees": []
+  },
+  {
+    "number": 1,
+    "created_at": "2026-01-13T11:06:26Z",
+    "updated_at": "2026-01-13T11:06:26Z",
+    "url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/1",
+    "html_url": "https://github.com/anotherk1nd/aws-portfolio/security/code-scanning/1",
+    "state": "open",
+    "fixed_at": null,
+    "dismissed_by": null,
+    "dismissed_at": null,
+    "dismissed_reason": null,
+    "dismissed_comment": null,
+    "rule": {
+      "id": "DS026",
+      "severity": "note",
+      "description": "No HEALTHCHECK defined",
+      "name": "Misconfiguration",
+      "tags": [
+        "LOW",
+        "misconfiguration",
+        "security"
+      ],
+      "full_description": "You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.",
+      "help": "**Misconfiguration DS026**\n| Type | Severity | Check | Message | Link |\n| --- | --- | --- | --- | --- |\n|Dockerfile Security Check|LOW|No HEALTHCHECK defined|Add HEALTHCHECK instruction in your Dockerfile|[DS026](https://avd.aquasec.com/misconfig/ds026)|\n\nYou should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.",
+      "help_uri": "https://avd.aquasec.com/misconfig/ds026",
+      "security_severity_level": "low"
+    },
+    "tool": {
+      "name": "Trivy",
+      "guid": null,
+      "version": "0.68.1"
+    },
+    "most_recent_instance": {
+      "ref": "refs/heads/main",
+      "analysis_key": ".github/workflows/security-scan.yml:container-security",
+      "environment": "{}",
+      "category": ".github/workflows/security-scan.yml:container-security",
+      "state": "open",
+      "commit_sha": "ab50634551debaf2b76a1124bc618aa4b6bd71e2",
+      "message": {
+        "text": "Artifact: Dockerfile\nType: dockerfile\nVulnerability DS026\nSeverity: LOW\nMessage: Add HEALTHCHECK instruction in your Dockerfile\nLink: [DS026](https://avd.aquasec.com/misconfig/ds026)"
+      },
+      "location": {
+        "path": "Dockerfile",
+        "start_line": 1,
+        "end_line": 1,
+        "start_column": 1,
+        "end_column": 1
+      },
+      "classifications": []
+    },
+    "instances_url": "https://api.github.com/repos/anotherk1nd/aws-portfolio/code-scanning/alerts/1/instances",
+    "dismissal_approved_by": null,
+    "assignees": []
+  }
+]

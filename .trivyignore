@@ -1,0 +1,27 @@
+# Trivy Security Scan Suppressions
+# Portfolio Project - Documented Risk Acceptances
+
+# AVD-AWS-0132: S3 bucket encryption with customer managed keys
+# Justification: AES256 (S3-managed) encryption is sufficient for:
+# - Log data (low-value, non-sensitive)
+# - Public static website content
+# - Personal portfolio project (not regulated)
+# KMS adds $1/month per key with minimal security benefit for this use case
+AVD-AWS-0132
+
+# s3-bucket-logging: S3 bucket logging
+# Justification: Logs bucket cannot log to itself (circular dependency)
+# CloudFront and S3 access logs are already enabled on main buckets
+s3-bucket-logging
+
+# s3-no-public-access: Public access blocks
+# Justification: False positive - public access IS blocked via:
+# - aws_s3_bucket_public_access_block resources
+# - Origin Access Control (OAC) for CloudFront
+# - Explicit bucket policies denying public access
+s3-no-public-access
+
+# DS026: Dockerfile HEALTHCHECK
+# Justification: Development container does not need health checks
+# Container runs locally in VS Code dev container, not in production
+DS026
