@@ -3,20 +3,14 @@
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
   
   "features": {
-    "ghcr.io/devcontainers/features/aws-cli:1": {
-      "version": "latest"
-    },
+    "ghcr.io/devcontainers/features/aws-cli:1": {},
     "ghcr.io/devcontainers/features/terraform:1": {
-      "version": "1.7.0"
+      "version": "1.14.3"
     },
-    "ghcr.io/devcontainers/features/git:1": {
-      "version": "latest"
-    },
-    "ghcr.io/devcontainers/features/github-cli:1": {
-      "version": "latest" 
-    } 
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
   },
-
+  
   "customizations": {
     "vscode": {
       "extensions": [
@@ -28,18 +22,18 @@
       }
     }
   },
-
+  
   "mounts": [
-    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.aws,target=/home/vscode/.aws,type=bind,consistency=cached"
+    "source=${localEnv:HOME}/.aws,target=/home/vscode/.aws,readonly,type=bind"
   ],
-
+  
   "remoteEnv": {
     "AWS_DEFAULT_REGION": "eu-central-1"
   },
-
-  "postCreateCommand": "terraform --version && aws --version",
-
+  
+  "postCreateCommand": "git config --global user.name 'anotherk1nd' && git config --global user.email '26300506+anotherk1nd@users.noreply.github.com' && git config --global core.autocrlf input && terraform --version && aws --version",
+  
   "postStartCommand": "echo 'Dev container ready!'",
-
+  
   "remoteUser": "vscode"
 }
