@@ -1,0 +1,337 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Contact - Josh Security Engineer</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        /* Minimal styling - adapt to match your Massively theme */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Source Sans Pro', Helvetica, sans-serif;
+            background: #1e252d;
+            color: #ffffff;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #2e3842;
+            padding: 40px;
+            border-radius: 8px;
+        }
+        
+        h1 {
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        
+        .subtitle {
+            color: #999;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        
+        label .required {
+            color: #ff6b6b;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            background: #1e252d;
+            border: 2px solid #3e4852;
+            border-radius: 4px;
+            color: #ffffff;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #4a9eff;
+        }
+        
+        textarea {
+            min-height: 200px;
+            resize: vertical;
+        }
+        
+        /* Honeypot field - hidden from humans, visible to bots */
+        .honeypot {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+        }
+        
+        button {
+            background: #4a9eff;
+            color: #ffffff;
+            border: none;
+            padding: 14px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #3a8eef;
+        }
+        
+        button:disabled {
+            background: #555;
+            cursor: not-allowed;
+        }
+        
+        .message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none;
+        }
+        
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .message.visible {
+            display: block;
+        }
+        
+        .char-count {
+            text-align: right;
+            font-size: 12px;
+            color: #999;
+            margin-top: 5px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #4a9eff;
+            text-decoration: none;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">← Back to Portfolio</a>
+        
+        <h1>Get in Touch</h1>
+        <p class="subtitle">Interested in working together? Send me a message.</p>
+        
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Name <span class="required">*</span></label>
+                <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    required 
+                    maxlength="100"
+                    placeholder="Your name"
+                />
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email <span class="required">*</span></label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    required 
+                    maxlength="200"
+                    placeholder="your.email@example.com"
+                />
+            </div>
+            
+            <div class="form-group">
+                <label for="company">Company (Optional)</label>
+                <input 
+                    type="text" 
+                    id="company" 
+                    name="company" 
+                    maxlength="100"
+                    placeholder="Your company"
+                />
+            </div>
+            
+            <div class="form-group">
+                <label for="subject">Subject <span class="required">*</span></label>
+                <input 
+                    type="text" 
+                    id="subject" 
+                    name="subject" 
+                    required 
+                    maxlength="200"
+                    placeholder="What's this about?"
+                />
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Message <span class="required">*</span></label>
+                <textarea 
+                    id="message" 
+                    name="message" 
+                    required 
+                    minlength="10"
+                    maxlength="5000"
+                    placeholder="Your message..."
+                ></textarea>
+                <div class="char-count">
+                    <span id="charCount">0</span> / 5000
+                </div>
+            </div>
+            
+            <!-- Honeypot field (spam protection) -->
+            <div class="honeypot">
+                <label for="website">Website</label>
+                <input 
+                    type="text" 
+                    id="website" 
+                    name="website" 
+                    tabindex="-1" 
+                    autocomplete="off"
+                />
+            </div>
+            
+            <button type="submit" id="submitBtn">Send Message</button>
+            
+            <div id="statusMessage" class="message"></div>
+        </form>
+    </div>
+    
+    <script>
+        // Configuration - UPDATE THIS with your API Gateway URL after deployment
+        const API_ENDPOINT = 'https://YOUR_API_GATEWAY_URL/prod/contact';
+        
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const statusMessage = document.getElementById('statusMessage');
+        const messageTextarea = document.getElementById('message');
+        const charCount = document.getElementById('charCount');
+        
+        // Character counter
+        messageTextarea.addEventListener('input', function() {
+            charCount.textContent = this.value.length;
+        });
+        
+        // Form submission
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            // Hide previous messages
+            statusMessage.classList.remove('visible', 'success', 'error');
+            
+            // Collect form data
+            const formData = {
+                name: document.getElementById('name').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                company: document.getElementById('company').value.trim(),
+                subject: document.getElementById('subject').value.trim(),
+                message: document.getElementById('message').value.trim(),
+                website: document.getElementById('website').value // Honeypot
+            };
+            
+            try {
+                // Send to API Gateway
+                const response = await fetch(API_ENDPOINT, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok && result.success) {
+                    // Success
+                    showMessage('success', result.message || 'Message sent successfully! I\'ll get back to you soon.');
+                    form.reset();
+                    charCount.textContent = '0';
+                } else {
+                    // Error from server
+                    showMessage('error', result.error || 'Failed to send message. Please try again.');
+                }
+                
+            } catch (error) {
+                // Network error
+                console.error('Error:', error);
+                showMessage('error', 'Network error. Please check your connection and try again.');
+            } finally {
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            }
+        });
+        
+        function showMessage(type, text) {
+            statusMessage.textContent = text;
+            statusMessage.className = 'message visible ' + type;
+            
+            // Auto-hide success message after 5 seconds
+            if (type === 'success') {
+                setTimeout(() => {
+                    statusMessage.classList.remove('visible');
+                }, 5000);
+            }
+        }
+        
+        // Client-side validation
+        const emailInput = document.getElementById('email');
+        emailInput.addEventListener('blur', function() {
+            if (this.value && !this.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+                this.setCustomValidity('Please enter a valid email address');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+        
+        const messageInput = document.getElementById('message');
+        messageInput.addEventListener('blur', function() {
+            if (this.value.length < 10) {
+                this.setCustomValidity('Message must be at least 10 characters');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+    </script>
+</body>
+</html>
