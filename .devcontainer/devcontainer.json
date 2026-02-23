@@ -8,7 +8,10 @@
       "version": "1.14.3"
     },
     "ghcr.io/devcontainers/features/git:1": {},
-    "ghcr.io/devcontainers/features/github-cli:1": {}
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/ruby:1": {
+      "version": "3.2"
+    }
   },
   
   "customizations": {
@@ -31,7 +34,7 @@
     "AWS_DEFAULT_REGION": "eu-central-1"
   },
   
-  "postCreateCommand": "git config --global user.name 'anotherk1nd' && git config --global user.email '26300506+anotherk1nd@users.noreply.github.com' && git config --global core.autocrlf input && terraform --version && aws --version",
+  "postCreateCommand": "git config --global user.name 'anotherk1nd' && git config --global user.email '26300506+anotherk1nd@users.noreply.github.com' && git config --global core.autocrlf input && gem install jekyll bundler && terraform --version && aws --version && jekyll --version",
   
   "postStartCommand": "echo 'Dev container ready!'",
   

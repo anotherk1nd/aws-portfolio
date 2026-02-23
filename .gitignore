@@ -126,3 +126,10 @@ ENV/
 # Keep documentation
 !*.md
 !README*
+
+# Jekyll Files and Pre-Jekyll Backup
+_site/
+.jekyll-cache/
+.jekyll-metadata
+Gemfile.lock
+_old_html/
