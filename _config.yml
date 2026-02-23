@@ -1,0 +1,48 @@
+# Site settings
+title: Josh - Security Engineer
+description: Security Engineer specializing in cloud security, infrastructure protection, and DevSecOps
+url: "https://d2ij5nb8hbhpx1.cloudfront.net"
+baseurl: ""
+
+# Author
+author:
+  name: Josh
+  github: anotherk1nd
+  linkedin: joshua-fenech-53612471
+
+# Build settings
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+
+# Exclude from build
+exclude:
+  - .git
+  - .github
+  - .devcontainer
+  - .terraform
+  - "*.tf"
+  - "*.tfvars"
+  - terraform.tfstate*
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
