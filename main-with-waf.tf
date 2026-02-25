@@ -358,7 +358,7 @@ resource "aws_cloudfront_response_headers_policy" "security_headers" {
     }
 
     content_security_policy {
-      content_security_policy = "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; media-src 'self' data:;"
+      content_security_policy = "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:;"
       override                = true
     }
   }
@@ -399,6 +399,11 @@ resource "aws_cloudfront_distribution" "website" {
       }
     }
 
+    function_association {
+      event_type   = "viewer-request"
+      function_arn = aws_cloudfront_function.directory_index.arn
+    }
+
     viewer_protocol_policy     = "redirect-to-https"
     min_ttl                    = 0
     default_ttl                = 3600
@@ -429,6 +434,30 @@ resource "aws_cloudfront_distribution" "website" {
     Environment = "Production"
     ManagedBy   = "Terraform"
   }
+}
+
+# CloudFront function to handle directory index files
+resource "aws_cloudfront_function" "directory_index" {
+  name    = "directory-index-${var.bucket_name}"
+  runtime = "cloudfront-js-1.0"
+  comment = "Append index.html to directory requests"
+  code    = <<-EOT
+    function handler(event) {
+      var request = event.request;
+      var uri = request.uri;
+      
+      // Check if URI is missing file extension and doesn't end with /
+      if (!uri.includes('.') && !uri.endsWith('/')) {
+        request.uri += '/index.html';
+      }
+      // If URI ends with /, append index.html
+      else if (uri.endsWith('/')) {
+        request.uri += 'index.html';
+      }
+      
+      return request;
+    }
+  EOT
 }
 
 # S3 bucket policy

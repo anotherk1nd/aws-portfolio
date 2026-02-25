@@ -25,25 +25,29 @@
 						Security Engineer</h1>
 						<p>Protecting infrastructure at scale | CERN experience | AWS enthusiast<br />
 						Specializing in cloud security, threat detection, and secure architecture design</p>
+					<!--	
 						<ul class="actions">
 							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
 						</ul>
+					-->
 					</div>
 				{% endif %}
 
 				<!-- Header -->
-					<header id="header">
+ 					<header id="header">
+						  <!-- Logo removed 
 						<a href="{{ '/' | relative_url }}" class="logo">Josh</a>
+							-->
 					</header>
 
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li{% if page.url == '/' %} class="active"{% endif %}><a href="{{ '/' | relative_url }}">Home</a></li>
-							<li{% if page.url == '/about/' or page.url == '/about.html' %} class="active"{% endif %}><a href="{{ '/about' | relative_url }}">About</a></li>
-							<li{% if page.url == '/projects/' or page.url == '/projects.html' %} class="active"{% endif %}><a href="{{ '/projects' | relative_url }}">Projects</a></li>
-							<li{% if page.url contains '/blog' or layout.name == 'post' %} class="active"{% endif %}><a href="{{ '/blog' | relative_url }}">Blog</a></li>
-							<li{% if page.url == '/contact/' or page.url == '/contact.html' %} class="active"{% endif %}><a href="{{ '/contact' | relative_url }}">Contact</a></li>
+							<li{% if page.url == '/' %} class="active"{% endif %}><a href="/">Home</a></li>
+							<li{% if page.url == '/about/' or page.url == '/about.html' %} class="active"{% endif %}><a href="/about">About</a></li>
+							<li{% if page.url == '/projects/' or page.url == '/projects.html' %} class="active"{% endif %}><a href="/projects">Projects</a></li>
+							<li{% if page.url contains '/blog' or layout.name == 'post' %} class="active"{% endif %}><a href="/blog">Blog</a></li>
+							<li{% if page.url == '/contact/' or page.url == '/contact.html' %} class="active"{% endif %}><a href="/contact">Contact</a></li>
 						</ul>
 						<ul class="icons">
 							<li><a href="https://github.com/{{ site.author.github }}" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
