@@ -12,6 +12,11 @@
 		<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
 		<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
 		<noscript><link rel="stylesheet" href="{{ '/assets/css/noscript.css' | relative_url }}" /></noscript>
+		<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+		<link rel="manifest" href="/images/site.webmanifest">
 	</head>
 	<body class="is-preload">
 
@@ -21,7 +26,7 @@
 				{% if page.url == '/' %}
 				<!-- Intro (only on homepage) -->
 					<div id="intro">
-						<h1>Josh<br />
+						<h1>Joshua Fenech<br />
 						Security Engineer</h1>
 						<p>Protecting infrastructure at scale | CERN experience | AWS enthusiast<br />
 						Specializing in cloud security, threat detection, and secure architecture design</p>
@@ -50,8 +55,8 @@
 							<li{% if page.url == '/contact/' or page.url == '/contact.html' %} class="active"{% endif %}><a href="/contact">Contact</a></li>
 						</ul>
 						<ul class="icons">
-							<li><a href="https://github.com/{{ site.author.github }}" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-							<li><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/{{ site.author.github }}" class="icon brands fa-github" target="_blank" rel="noopener noreferrer"><span class="label">GitHub</span></a></li>
+							<li><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}/" class="icon brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span class="label">LinkedIn</span></a></li>
 						</ul>
 					</nav>
 
@@ -63,7 +68,7 @@
 				<!-- Footer -->
 					<footer id="footer">
 						<section>
-							<form method="post" action="#">
+							<form method="post" action="https://18wbhwgpti.execute-api.eu-central-1.amazonaws.com/prod/contact" enctype="application/x-www-form-urlencoded">
 								<div class="fields">
 									<div class="field">
 										<label for="name">Name</label>
@@ -91,8 +96,8 @@
 							<section>
 								<h3>Social</h3>
 								<ul class="icons alt">
-									<li><a href="https://github.com/{{ site.author.github }}" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-									<li><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}/" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://github.com/{{ site.author.github }}" class="icon brands alt fa-github" target="_blank" rel="noopener noreferrer"><span class="label">GitHub</span></a></li>
+									<li><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}/" class="icon brands alt fa-linkedin" target="_blank" rel="noopener noreferrer"><span class="label">LinkedIn</span></a></li>
 								</ul>
 							</section>
 						</section>
