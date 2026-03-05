@@ -41,6 +41,10 @@ def lambda_handler(event, context):
         email = form_data.get('email', 'noreply@example.com')
         message = form_data.get('message', 'No message')
         
+        print(f"DEBUG - Raw body: {body}")
+        print(f"DEBUG - Parsed form_data: {form_data}")
+        print(f"DEBUG - Name: '{name}', Email: '{email}', Message: '{message}'")
+        
         # Validate inputs
         if not name or not email or not message:
             return {
@@ -77,6 +81,8 @@ Date: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC
 Message:
 {message}
 
+---
+Reply to: {email}
                         """,
                         'Charset': 'UTF-8'
                     }
@@ -87,30 +93,13 @@ Message:
         
         # Return success page
         return {
-            'statusCode': 200,
-            'headers': {
-                'Access-Control-Allow-Origin': '*',
-                'Content-Type': 'text/html'
+                'statusCode': 302,
+                'headers': {
+                    'Location': 'https://d2ij5nb8hbhpx1.cloudfront.net/?message=sent',
+                    'Cache-Control': 'no-cache'
             },
-            'body': '''
-            <html>
-            <head>
-                <title>Message Sent - Josh Security Engineer</title>
-                <style>
-                    body { font-family: Arial, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; }
-                    h1 { color: #2ecc71; }
-                    a { color: #3498db; text-decoration: none; }
-                    a:hover { text-decoration: underline; }
-                </style>
-            </head>
-            <body>
-                <h1>✓ Message Sent Successfully!</h1>
-                <p>Thank you for reaching out. I'll get back to you soon.</p>
-                <p><a href="/">← Return to homepage</a></p>
-            </body>
-            </html>
-            '''
-        }
+            'body': ''
+         }
         
     except Exception as e:
         print(f"Error: {str(e)}")

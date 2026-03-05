@@ -126,5 +126,14 @@
 			<script src="{{ '/assets/js/util.js' | relative_url }}"></script>
 			<script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 
+        <!-- Contact form success notification -->
+        <script>
+        if (window.location.search.includes('message=sent')) {
+            alert('✓ Message sent successfully! Thank you for reaching out. I\'ll get back to you soon.');
+            // Clean URL
+            window.history.replaceState({}, document.title, '/');
+        }
+        </script>
+
 	</body>
 </html>
