@@ -12,6 +12,11 @@
 		<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
 		<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
 		<noscript><link rel="stylesheet" href="{{ '/assets/css/noscript.css' | relative_url }}" /></noscript>
+		<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+		<link rel="manifest" href="/images/site.webmanifest">
 	</head>
 	<body class="is-preload">
 
@@ -63,7 +68,7 @@
 				<!-- Footer -->
 					<footer id="footer">
 						<section>
-							<form method="post" action="#">
+							<form method="post" action="https://18wbhwgpti.execute-api.eu-central-1.amazonaws.com/prod/contact" enctype="application/x-www-form-urlencoded">
 								<div class="fields">
 									<div class="field">
 										<label for="name">Name</label>

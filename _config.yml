@@ -28,6 +28,11 @@ exclude:
   - Gemfile.lock
   - node_modules
   - vendor
+  - lambda_contact_form.py
+  - lambda_contact_form.zip
+  - contact-form-terraform.tf
+  - "*.backup"
+  - .terraform.lock.hcl
 
 # Collections
 collections:
