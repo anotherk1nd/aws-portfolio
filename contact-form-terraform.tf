@@ -65,6 +65,7 @@ resource "aws_lambda_function" "contact_form" {
   environment {
     variables = {
       RECIPIENT_EMAIL = "hello@joshuafenech.de"
+      WEBSITE_URL     = "https://d2ij5nb8hbhpx1.cloudfront.net"
     }
   }
 

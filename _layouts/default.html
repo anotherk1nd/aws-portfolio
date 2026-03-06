@@ -112,7 +112,7 @@
 
 				<!-- Copyright -->
 					<div id="copyright">
-						<ul><li>&copy; 2025 Josh</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+						<ul><li>&copy; 2026 Joshua Fenech</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 					</div>
 
 			</div>
@@ -126,12 +126,22 @@
 			<script src="{{ '/assets/js/util.js' | relative_url }}"></script>
 			<script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 
-        <!-- Contact form success notification -->
-        <script>
-        if (window.location.search.includes('message=sent')) {
-            alert('✓ Message sent successfully! Thank you for reaching out. I\'ll get back to you soon.');
-            // Clean URL
-            window.history.replaceState({}, document.title, '/');
+        <!-- Contact form notifications -->
+		      
+		<script>
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // Success message
+        if (urlParams.get('message') === 'sent') {
+            alert('✓ Message sent successfully! Thank you for reaching out. I\'ll get back to you shortly.');
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+        
+        // Error message
+        const error = urlParams.get('error');
+        if (error) {
+            alert('Error: ' + decodeURIComponent(error));
+            window.history.replaceState({}, document.title, window.location.pathname);
         }
         </script>
 
