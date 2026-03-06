@@ -59,7 +59,7 @@ resource "aws_lambda_function" "contact_form" {
   handler       = "lambda_contact_form.lambda_handler"
   runtime       = "python3.11"
   timeout       = 30
-
+  reserved_concurrent_executions = 2  # Rate limiting
   source_code_hash = filebase64sha256("lambda_contact_form.zip")
 
   environment {
@@ -79,7 +79,7 @@ resource "aws_lambda_function" "contact_form" {
 # CloudWatch Log Group
 resource "aws_cloudwatch_log_group" "contact_form" {
   name              = "/aws/lambda/${aws_lambda_function.contact_form.function_name}"
-  retention_in_days = 7
+  retention_in_days = 365
 
   tags = {
     Name        = "Contact Form Logs"
