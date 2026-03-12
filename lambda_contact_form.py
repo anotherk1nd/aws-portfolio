@@ -4,6 +4,7 @@ import os
 import urllib.parse
 import re
 import html
+import base64
 from datetime import datetime
 
 ses_client = boto3.client('ses', region_name='eu-central-1')
@@ -50,7 +51,6 @@ def lambda_handler(event, context):
     try:
         # Parse form data
         if event.get('isBase64Encoded'):
-            import base64
             body = base64.b64decode(event['body']).decode('utf-8')
         else:
             body = event.get('body', '')
@@ -66,6 +66,11 @@ def lambda_handler(event, context):
         name = form_data.get('name', '').strip()
         email = form_data.get('email', '').strip()
         message = form_data.get('message', '').strip()
+
+        # Protect against email header injection 
+        name = name.replace('\r', '').replace('\n', '')
+        email = email.replace('\r', '').replace('\n', '')
+        message = message.replace('\r', '').replace('\n', '')
 
         # Validate required fields
         if not name or not email or not message:
@@ -85,9 +90,10 @@ def lambda_handler(event, context):
             return error_response("Invalid email format")
         
         # Sanitize inputs (prevent XSS if ever displayed)
-        name = html.escape(name)
-        email = html.escape(email)
-        message = html.escape(message)
+        # NOT NEEDED since plain text email
+        # name = html.escape(name)
+        # email = html.escape(email)
+        # message = html.escape(message)
         
         # Send email via SES
         recipient_email = os.environ.get('RECIPIENT_EMAIL', 'hello@joshuafenech.de')
