@@ -5,7 +5,7 @@ title: Home
 
 <article class="post featured">
 	<header class="major">
-		<h2>Welcome</h2>
+		<h2>Welcome!</h2>
 		<p>Security engineer based in Berlin specializing in cloud security,<br />
 		SIEM deployment, and Infrastructure as Code.</p>
 	</header>

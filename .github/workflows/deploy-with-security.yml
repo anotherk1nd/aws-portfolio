@@ -167,6 +167,9 @@ jobs:
       - name: Create ZAP rules directory
         run: mkdir -p .zap
 
+      - name: Fix workspace permissions for ZAP
+        run: chmod a+w .
+
       - name: ZAP Baseline Scan
         uses: zaproxy/action-baseline@v0.12.0
         with:
