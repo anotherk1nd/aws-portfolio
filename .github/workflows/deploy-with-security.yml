@@ -155,10 +155,38 @@ jobs:
           echo "$HEADERS" | grep -i "x-frame-options" && echo "✅ X-Frame-Options present" || echo "❌ X-Frame-Options missing"
           echo "$HEADERS" | grep -i "content-security-policy" && echo "✅ CSP present" || echo "❌ CSP missing"
 
+  dast-scan:
+    name: DAST Scan (OWASP ZAP)
+    runs-on: ubuntu-latest
+    needs: post-deployment-tests
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create ZAP rules directory
+        run: mkdir -p .zap
+
+      - name: ZAP Baseline Scan
+        uses: zaproxy/action-baseline@v0.12.0
+        with:
+          target: 'https://d2ij5nb8hbhpx1.cloudfront.net'
+          rules_file_name: '.zap/rules.tsv'
+          fail_action: false
+          cmd_options: '-a -j'
+
+      - name: Upload ZAP report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: zap-report
+          path: report_html.html
+          retention-days: 30
+
   deployment-summary:
     name: Deployment Summary
     runs-on: ubuntu-latest
-    needs: [security-checks, build-and-deploy, post-deployment-tests]
+    needs: [security-checks, build-and-deploy, post-deployment-tests, dast-scan]
     if: always()
     
     steps:
@@ -174,6 +202,9 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Validation" >> $GITHUB_STEP_SUMMARY
           echo "- Post-deployment Tests: ${{ needs.post-deployment-tests.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### DAST" >> $GITHUB_STEP_SUMMARY
+          echo "- OWASP ZAP Scan: ${{ needs.dast-scan.result }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           if [ "${{ needs.build-and-deploy.result }}" = "success" ]; then
             echo "✅ Jekyll site successfully built and deployed!" >> $GITHUB_STEP_SUMMARY
