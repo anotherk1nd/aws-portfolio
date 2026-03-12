@@ -56,8 +56,8 @@ resource "aws_s3_bucket_lifecycle_configuration" "website" {
   rule {
     id     = "cleanup-old-versions"
     status = "Enabled"
-    
-    filter {}  # ← ADD THIS LINE (empty filter = applies to all objects)
+
+    filter {}
 
     # Keep old versions for 30 days
     noncurrent_version_expiration {
@@ -113,7 +113,7 @@ resource "aws_s3_bucket_ownership_controls" "logs" {
 
 resource "aws_s3_bucket_acl" "logs" {
   depends_on = [aws_s3_bucket_ownership_controls.logs]
-  
+
   bucket = aws_s3_bucket.logs.id
   acl    = "log-delivery-write"
 }
@@ -143,9 +143,9 @@ resource "aws_s3_bucket_lifecycle_configuration" "logs" {
   rule {
     id     = "cleanup-old-logs"
     status = "Enabled"
-    
-    filter {}  # ← ADD THIS LINE (empty filter = applies to all objects)
-    
+
+    filter {}
+
     noncurrent_version_expiration {
       noncurrent_days = 7
     }
@@ -290,7 +290,7 @@ resource "aws_wafv2_web_acl" "cloudfront" {
     }
   }
 
-  # Geographic restriction rule (optional - blocks specific countries)
+  # Geographic restriction rule
   rule {
     name     = "GeoBlockRule"
     priority = 5
@@ -436,8 +436,8 @@ resource "aws_cloudfront_distribution" "website" {
   viewer_certificate {
     cloudfront_default_certificate = true
     minimum_protocol_version       = "TLSv1.2_2021"
-    ssl_support_method            = null
-    acm_certificate_arn           = null
+    ssl_support_method             = null
+    acm_certificate_arn            = null
   }
 
   logging_config {
@@ -450,6 +450,12 @@ resource "aws_cloudfront_distribution" "website" {
     Name        = "Portfolio Website"
     Environment = "Production"
     ManagedBy   = "Terraform"
+  }
+
+  lifecycle {
+    ignore_changes = [
+      viewer_certificate
+    ]
   }
 }
 

@@ -59,7 +59,7 @@ resource "aws_lambda_function" "contact_form" {
   handler       = "lambda_contact_form.lambda_handler"
   runtime       = "python3.11"
   timeout       = 30
-  reserved_concurrent_executions = 2  # Rate limiting
+  # reserved_concurrent_executions = 10  # Rate limiting, 10 is min supported by aws lambda functions - not possible currently, only 10 total available 12/3/26
   source_code_hash = filebase64sha256("lambda_contact_form.zip")
 
   environment {
