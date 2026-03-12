@@ -33,6 +33,8 @@ exclude:
   - contact-form-terraform.tf
   - "*.backup"
   - .terraform.lock.hcl
+  - logs/
+  - scripts/
 
 # Collections
 collections:
