@@ -138,11 +138,13 @@
         }
         
         // Error message
-        const error = urlParams.get('error');
-        if (error) {
-            alert('Error: ' + decodeURIComponent(error));
-            window.history.replaceState({}, document.title, window.location.pathname);
-        }
+		const error = urlParams.get('error');
+		if (error) {
+    		const safeError = error.replace(/[<>"'&]/g, '');
+    		alert('Error: ' + safeError);
+    		window.history.replaceState({}, document.title, window.location.pathname);
+		}      
+
         </script>
 
 	</body>
