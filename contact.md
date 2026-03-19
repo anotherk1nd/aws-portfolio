@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Contact
-description: Get in touch with Josh - Security Engineer specializing in cloud security and infrastructure protection
+description: Get in touch with Josh - Security Engineer specialising in cloud security and infrastructure protection
 ---
 
 <section class="post">

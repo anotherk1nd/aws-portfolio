@@ -1,32 +1,16 @@
 ---
 layout: default
 title: About
-description: Security Engineer specializing in cloud security, SIEM deployment, and Infrastructure as Code
+description: Security Engineer specialising in cloud security, SIEM deployment, and Infrastructure as Code
 ---
+<header class="major">
+	<h1>About me</h1>
+</header>
 
-<section class="post">
-	<header class="major">
-		<h1>About</h1>
-	</header>
-
-	<p>Hi, I'm Josh. I'm a security engineer based in Berlin who specializes in cloud security, SIEM deployment, and Infrastructure as Code.</p>
-
-	<h2>CERN</h2>
-	<p>[PLACEHOLDER: Brief description - e.g., "I spent three years working on cybersecurity infrastructure at CERN, implementing security controls and threat detection for research systems supporting thousands of scientists worldwide"].</p>
-
-	<h2>Current Focus</h2>
-	<p>I'm currently focused on cloud security architecture and DevSecOps practices. I build and secure AWS infrastructure, deploy SIEM solutions like Wazuh, and help organizations implement security automation. You can see examples of my work in the <a href="{{ '/projects' | relative_url }}">Projects</a> section.</p>
-
-	<h2>Writing</h2>
-	<p>I write about security topics on my <a href="{{ '/blog' | relative_url }}">blog</a>, covering AWS security, SIEM configurations, threat detection, and Infrastructure as Code best practices.</p>
-
-	<h2>Education</h2>
-	<p>Master's degrees in AI and Cybersecurity.</p>
-
-	<h2>Location</h2>
-	<p>I'm based in Berlin, Germany and can be contacted via the <a href="{{ '/contact' | relative_url }}">contact page</a>. [PLACEHOLDER: e.g., "I'm currently seeking cloud security roles across Europe" OR "I'm happy to discuss security projects and consulting opportunities"].</p>
-
-</section>
+I'm a cybersecurity engineer that helped to secure CERN, the largest particle physics research institute in the world and the birthplace of the World Wide Web.<br><br>
+I started my journey in Astrophysics, identifying fast- from slow-rotating galaxies using decision trees. Following a Master's in AI I worked at CERN to integrate GPU's into the datacenter for AI applications before joining their security team to procure and deploy the latest Endpoint Detection and Response solution as well as defend their infrastructure from APT's.<br><br>
+I'm based in Berlin, working part-time at Datascience Retreat to write a cybersecurity bootcamp course and research new global business opportunities.<br><br>
+In my spare time I love AI and cybersecurity projects, as well as bike touring, music, reading and writing.
 
 <section class="post">
 	<header class="major">
